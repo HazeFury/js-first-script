@@ -35,13 +35,34 @@ for (let i = 0; i < string.length; i++) {
     score++;
   }
 }
-console.log(score);
+//console.log(score);
 
 // le code ici
 
 // EXERCICE 3
 // Votre personnage à 100 points de vie.
 // Il engage le combat avec un adversaire
-// A chaque il encaisse des dégats
+// A chaque tour il encaisse des dégats
 // On souhaite faire un programme pour réaliser un combat dans lequel
 // le personnage se bat tant qu'il a des points de vie
+
+// 1) on a une variable qui représente la vie de notre joueur
+let playerLife = 100;
+let round = 1;
+// 3) on ouvre une boucle avec la condition que TANT QUE notre perso à de la vie, le combat continu
+while (playerLife > 0) {
+  console.log(`round : ${round}`);
+  // 2) on génère un nombre aléatoire pour simuler les dégats
+  let randomAttack = Math.floor(Math.random() * (20 - 3) + 3);
+  console.log("les dégats infligés seront de : ", randomAttack);
+  // 4) a chaque tour, on soustrait le nombre aléatoire à la vie de notre joueur
+  playerLife = playerLife - randomAttack;
+  // 5) on console.log les degats infligés et la vie restante à notre héros à chaque tour
+  console.log(`il reste ${playerLife} points de vie au héros`);
+  round++;
+  // 6) on vérifie à chaque tour si il reste de la vie à mon héros
+  // si c'est non, on console.log "Game over"
+  if (playerLife <= 0) {
+    console.log("Game over");
+  }
+}
